@@ -1,0 +1,15 @@
+network:
+  version: 2
+  renderer: NetworkManager
+  wifis:
+    wlan0:
+      dhcp4: no
+      addresses: [192.168.0.108/24]
+      routes:
+        - to: default
+          via: 192.168.0.1
+      nameservers:
+        addresses: [8.8.8.8,8.8.4.4]
+      access-points:
+        "ACTFIBERNET":
+          password: "act12345"
