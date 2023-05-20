@@ -1,6 +1,60 @@
 run our sim
     ros2 launch garuda launch_sim.launch.py world:=./src/garuda/worlds/obstacles.world 
     killall gzserver and killall gzclient
+
 ROS2_control
+Let’s try the spawner script.
+
+    ros2 run controller_manager spawner.py diff_cont
+    ros2 run controller_manager spawner.py joint_broad
+
     sudo apt install ros-humble-ros2-control ros-humble-ros2-controllers ros-humble-gazebo-ros2-control
     ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped
+
+    It works with Ubuntu 22.04 Humble and you should install all control package such as joint_trajectory_controller, joint_state_broadcaster, controller_manager, joint-state-publisher-gui then edit your launch file.
+    
+
+3
+
+answered Feb 28 '23
+Ranjit Kathiriya gravatar image
+Ranjit Kathiriya
+1567 ●18 ●147 ●45
+
+updated Feb 28 '23
+
+Hello there,
+
+Thanks @gurselturkeri, for updating the launch file in the question, but I am sharing the details answer over here,
+
+    As @gurselturkeri suggested to installed joint_trajectory_controller, joint_state_broadcaster, controller_manager, joint-state-publisher-gui library.
+
+I think you also need this below library to access gazebo controls. sudo apt-get install ros-humble-gazebo-ros2-control
+
+    About the Launch file, If you are using Ros2 Humble you need to correct
+
+Check Which command is working in your case After installing controller-manager hit this commands in terminal ros2 run controller_manager spawner.py -h or ros2 run controller_manager spawner -h - This command is working in my case if it is so then change spawner.py to spawner in executable node.
+
+Node(
+            package="controller_manager",
+            executable="spawner",   
+            arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"],
+            ),
+Node(
+           package="controller_manager",
+           executable="spawner",    
+            arguments=["joint_trajectory_controller", "-c", "/controller_manager"],
+            )
+
+    You can check every thing is working by executing the command into your terminal:
+
+ros2 topic pub /joint_trajectory_controller/joint_trajectory trajectory_msgs/msg/JointTrajectory "header:
+  stamp:
+    sec: 0
+    nanosec: 0
+  frame_id: ''
+joint_names: ['joint_1','joint_2','joint_4']
+points: [ {"positions":[-1.57,-0.59,-1.2]} ]"
+
+
+https://answers.ros.org/question/412742/controller-manager-not-available-in-ros2/
