@@ -1,3 +1,5 @@
+run our sim
+    ros2 launch garuda launch_sim.launch.py world:=./src/garuda/worlds/obstacles.world 
 
 ROS2_control
     sudo apt install ros-humble-ros2-control ros-humble-ros2-controllers ros-humble-gazebo-ros2-control
