@@ -23,4 +23,8 @@
         <material>Gazebo/Gold</material>
     </gazebo>
 
+    <gazebo reference="camera_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
 </robot>
