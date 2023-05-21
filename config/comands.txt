@@ -4,7 +4,9 @@ run our sim
 
 install gamepad library
     sudo apt install joystick jstest-gtk evtest
+    https://github.com/joshnewans/joy_tester.git
 
+    
 ROS2_control
 Let’s try the spawner script.
 
