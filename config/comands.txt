@@ -6,6 +6,8 @@ install gamepad library
     sudo apt install joystick jstest-gtk evtest
     https://github.com/joshnewans/joy_tester.git
 
+navigation
+    sudo apt install ros-humble-slam-toolbox
     
 ROS2_control
 Let’s try the spawner script.
