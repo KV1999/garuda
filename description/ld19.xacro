@@ -24,7 +24,7 @@
         </xacro:inertial_cylinder>
     </link>
 
-     <!-- <gazebo reference="base_laser">
+    <gazebo reference="base_laser">
 
         <sensor name="laser" type="ray">
             <pose> 0 0 0 0 0 0 </pose>
@@ -51,6 +51,6 @@
                 <frame_name>base_laser</frame_name>
             </plugin>
         </sensor>
-    </gazebo> -->
+    </gazebo>
 
 </robot>
