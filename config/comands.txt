@@ -8,6 +8,7 @@ install gamepad library
 
 navigation
     sudo apt install ros-humble-slam-toolbox
+    ros2 launch slam_toolbox online_async_launch.py params_file:=./g_ws/src/garuda/config/mapper_params_online_async.yaml 
     
 ROS2_control
 Let’s try the spawner script.
