@@ -4,7 +4,7 @@
     <joint name="laser_joint" type="fixed">
         <parent link="base_link"/>
         <child link="base_laser"/>
-        <origin xyz="0.07725 0 0.10009" rpy="0 0 ${pi/2}"/>
+        <origin xyz="0.07725 0 0.1051" rpy="0 0 ${pi/2}"/>
     </joint>
 
     <link name="base_laser">
