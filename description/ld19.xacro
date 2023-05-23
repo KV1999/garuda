@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="robot">
 
     <joint name="laser_joint" type="fixed">
-        <parent link="chassis"/>
+        <parent link="base_link"/>
         <child link="base_laser"/>
         <origin xyz="0.07725 0 0.10009" rpy="0 0 ${pi/2}"/>
     </joint>
