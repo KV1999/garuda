@@ -18,6 +18,9 @@ ros2 run nav2_map_server map_server --ros-args -p yaml_filename:=final.yaml
 ros2 run nav2_util lifecycle_bringup map_server
 ros2 run nav2_amcl amcl
 ros2 run nav2_util lifecycle_bringup amcl
+sudo apt install ros-humble-twist-mux
+ros2 run twist_mux twist_mux --ros-args --params-file ./g_ws/src/garuda/config/twist_mux.yaml -r cmd_vel_out:=diff_cont/cmd_vel_unstamped
+ros2 launch nav2_bringup navigation_launch.py 
 
 
 
