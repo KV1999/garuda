@@ -11,7 +11,16 @@ navigation
     ros2 launch slam_toolbox online_async_launch.py params_file:=./g_ws/src/garuda/config/mapper_params_online_async.yaml 
     ros2 run rqt_image_view rqt_image_view
     sudo apt install ros-humble-navigation2 ros-humble-nav2-bringup ros-humble-turtlebot3
-    
+    ros2 launch slam_toolbox online_async_launch.py parama_files:=./g_ws/src/garuda/config/Localization/mapper_params_online_async.yaml
+ros2 run rqt_image_view rqt_image_view 
+ ros2 run joy joy_node
+ros2 run nav2_map_server map_server --ros-args -p yaml_filename:=final.yaml
+ros2 run nav2_util lifecycle_bringup map_server
+ros2 run nav2_amcl amcl
+ros2 run nav2_util lifecycle_bringup amcl
+
+
+
 ROS2_control
 Let’s try the spawner script.
 
